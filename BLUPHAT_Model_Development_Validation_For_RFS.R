@@ -1247,3 +1247,6 @@ ggplot(dataForForestPlot, aes(x=dataset, y=hr.coxph)) +
         axis.line.y = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank())
+
+                 
+                 
