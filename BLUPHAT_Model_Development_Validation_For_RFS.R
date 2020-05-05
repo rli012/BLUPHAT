@@ -680,6 +680,29 @@ exprData <- exprData[,keep]
 phenoData <- phenoData[keep,]
 
 
+###### MSKCC2010
+
+exprData <- read.table('data/Validation/MSKCC_PCa_mRNA_data.txt', header = T, sep = '\t', stringsAsFactors = F)
+exprData[1:5,1:5]
+
+
+final.anno <- readRDS('~/bigdata/PCa/data/Annotation/Homo_Sapiens_Gene_Annotation_ENSEMBL_HGNC_ENTREZ.RDS')
+idx <- match(colnames(geno.mrna), final.anno$ensembl_id)
+
+entrez.id <- final.anno[idx,]$entrez_id
+entrez.id <- entrez.id[-which(is.na(entrez.id))]
+
+idx <- which(exprData$GeneID %in% entrez.id)
+
+exprData <- exprData[idx,]
+rownames(phenoData) <- phenoData$sample_id
+
+samples <- intersect(colnames(exprData),rownames(phenoData))
+
+exprData <- exprData[,samples]
+phenoData <- phenoData[samples,]
+
+
 ####### DKFZ2018 #######
 
 dataset <- 'DKFZ2018'
@@ -771,6 +794,10 @@ ovlp
 
 geno <- scale(t(exprData[ovlp,keep]))
 dim(geno)
+
+#geno <- scale(t(exprData[,keep]))
+#dim(geno)
+
 
 pheno <- as.matrix(phenoData$y, drop=FALSE)
 y <- as.numeric(pheno)
@@ -997,6 +1024,7 @@ sum(phenoData$y==1)
 
 ovlp <- intersect(colnames(geno.mrna), rownames(exprData))
 geno1 <- scale(t(exprData[ovlp,keep]))
+#geno1 <- scale(t(exprData[,keep]))
 
 ovlp <- intersect(colnames(geno.mir), rownames(mirData))
 geno2 <- scale(t(mirData[ovlp,keep]))
@@ -1197,12 +1225,13 @@ ggplot(dataForForestPlot, aes(x=dataset, y=hr.coxph)) +
   #geom_segment(aes(y=6:1-0.1, x=lower95.coxph, xend=lower95.coxph, yend=6:!+0.1), color='black', size=1) +
   geom_errorbar(aes(ymin=lower95.coxph, ymax=upper95.coxph),width=0.1, size=0.8, color='black')+ 
   geom_point(color=google.red, size=3, shape=15) + #facet_grid(.~type) +
-  geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.017,0.033,0.018), label=p.coxph, group=NULL),
-            size=4.4) +
-  #geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.35,0.5,0.2,0.45,0.95,0.55), label=p.coxph, group=NULL),
+  #geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.017,0.033,0.018), label=p.coxph, group=NULL),
   #          size=4.4) +
+  geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.35,0.5,0.2,0.45,0.95,0.55), label=p.coxph, group=NULL),
+            size=4.4) +
   coord_flip()+
-  ylim(0,0.05) +
+  #ylim(0,0.05) +
+  ylim(0,1.05) +
   xlab('')+ylab('Hazard Ratio') +
   #xlim(0,100) +
   theme_bw()+
