@@ -791,9 +791,6 @@ phenoData <- phenoData[keep,]
 #####################################################################################
 #####################################################################################
 
-genesInValidation[rownames(exprData), 'MSKCC2010RNA'] <- 1
-
-
 
 total <- nrow(phenoData)
 notNA <- sum(!is.na(phenoData$time_to_bcr))
@@ -820,10 +817,18 @@ ovlp
 
 geno <- scale(t(exprData[ovlp,keep]))
 dim(geno)
-
 #geno <- scale(t(exprData[,keep]))
 #dim(geno)
 
+#genesInValidation[ovlp, 'MSKCC2010RNA'] <- 1
+genesInValidation[ovlp, dataset] <- 1
+
+#gene.name <- as.character(annoData$gene_name[match(rownames(genesInValidation), annoData$ensembl_id)])
+#gene.name
+
+#genesInValidation$Symbol <- gene.name
+
+#write.table(genesInValidation, file='report/GENE160_MIR65_In_Validation_Datasets.txt', sep='\t', quote=F)
 
 pheno <- as.matrix(phenoData$y, drop=FALSE)
 y <- as.numeric(pheno)
