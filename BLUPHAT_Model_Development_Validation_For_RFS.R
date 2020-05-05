@@ -655,6 +655,13 @@ print (plt[[1]])
 
 ################ Validation
 
+genesInValidation <- data.frame(matrix(rep(0,(160+65)*7), nrow=160+65, ncol=7), stringsAsFactors = F)
+genesInValidation
+
+rownames(genesInValidation) <- colnames(geno.comb)
+colnames(genesInValidation) <- c('GSE70769','DKFZ2018','GSE116918','GSE107299','GSE54460','MSKCC2010RNA','MSKCC2010MIR')
+
+
 ####### GSE107299 #######
 
 dataset <- 'GSE107299'
@@ -666,35 +673,50 @@ phenoData <- pData(eSet)
 
 ####### GSE21034 #######
 
-dataset <- 'GSE21034'
+#dataset <- 'GSE21034'
 
-eSet <- readRDS(paste0('data/Validation/', dataset, '_eSet.RDS'))
-exprData <- exprs(eSet)
-exprData[1:5,1:5]
+#eSet <- readRDS(paste0('data/Validation/', dataset, '_eSet.RDS'))
+#exprData <- exprs(eSet)
+#exprData[1:5,1:5]
 
-phenoData <- pData(eSet)
+#phenoData <- pData(eSet)
 #View(phenoData)
-table(phenoData$sample_type)
-keep <- which(phenoData$sample_type=='Primary')
-exprData <- exprData[,keep]
-phenoData <- phenoData[keep,]
+#table(phenoData$sample_type)
+#keep <- which(phenoData$sample_type=='Primary')
+#exprData <- exprData[,keep]
+#phenoData <- phenoData[keep,]
 
 
 ###### MSKCC2010
+
+dataset <- 'GSE21034'
+
+eSet <- readRDS(paste0('data/Validation/', dataset, '_eSet.RDS'))
+
+phenoData <- pData(eSet)
+table(phenoData$sample_type)
+keep <- which(phenoData$sample_type=='Primary')
+phenoData <- phenoData[keep,]
 
 exprData <- read.table('data/Validation/MSKCC_PCa_mRNA_data.txt', header = T, sep = '\t', stringsAsFactors = F)
 exprData[1:5,1:5]
 
 
-final.anno <- readRDS('~/bigdata/PCa/data/Annotation/Homo_Sapiens_Gene_Annotation_ENSEMBL_HGNC_ENTREZ.RDS')
-idx <- match(colnames(geno.mrna), final.anno$ensembl_id)
+annoData <- readRDS('~/bigdata/PCa/data/Annotation/Homo_Sapiens_Gene_Annotation_ENSEMBL_HGNC_ENTREZ.RDS')
+idx <- match(colnames(geno.mrna), as.character(annoData$ensembl_id))
 
-entrez.id <- final.anno[idx,]$entrez_id
+entrez.id <- annoData[idx,]$entrez_id
 entrez.id <- entrez.id[-which(is.na(entrez.id))]
 
 idx <- which(exprData$GeneID %in% entrez.id)
 
 exprData <- exprData[idx,]
+
+ensembl.id <- as.character(annoData$ensembl_id[match(exprData$GeneID, annoData$entrez_id)])
+ensembl.id
+
+rownames(exprData) <- ensembl.id
+
 rownames(phenoData) <- phenoData$sample_id
 
 samples <- intersect(colnames(exprData),rownames(phenoData))
@@ -768,6 +790,10 @@ phenoData <- phenoData[keep,]
 
 #####################################################################################
 #####################################################################################
+
+genesInValidation[rownames(exprData), 'MSKCC2010RNA'] <- 1
+
+
 
 total <- nrow(phenoData)
 notNA <- sum(!is.na(phenoData$time_to_bcr))
@@ -863,6 +889,9 @@ pred <- cbind(pred, daysToDeath, vitalStatus)
 pred
 
 write.table(pred, file=paste0('report/Validation_', dataset, '_mRNA_Prediction.txt'), sep = '\t', quote = F, row.names = F)
+dataset
+
+write.table(pred, file=paste0('report/Validation_MSKCC2010_mRNA_Prediction.txt'), sep = '\t', quote = F, row.names = F)
 dataset
 
 risk <- pred$yhat[order(pred$id)]
@@ -986,18 +1015,42 @@ stats
 
 ####### GSE21034 #######
 
+###### MSKCC2010
+
 dataset <- 'GSE21034'
 
 eSet <- readRDS(paste0('data/Validation/', dataset, '_eSet.RDS'))
-exprData <- exprs(eSet)
-exprData[1:5,1:5]
 
 phenoData <- pData(eSet)
+table(phenoData$sample_type)
 keep <- which(phenoData$sample_type=='Primary')
-exprData <- exprData[,keep]
 phenoData <- phenoData[keep,]
 
-rownames(phenoData) <- colnames(exprData) <- phenoData$sample_id
+exprData <- read.table('data/Validation/MSKCC_PCa_mRNA_data.txt', header = T, sep = '\t', stringsAsFactors = F)
+exprData[1:5,1:5]
+
+
+annoData <- readRDS('~/bigdata/PCa/data/Annotation/Homo_Sapiens_Gene_Annotation_ENSEMBL_HGNC_ENTREZ.RDS')
+idx <- match(colnames(geno.mrna), as.character(annoData$ensembl_id))
+
+entrez.id <- annoData[idx,]$entrez_id
+entrez.id <- entrez.id[-which(is.na(entrez.id))]
+
+idx <- which(exprData$GeneID %in% entrez.id)
+
+exprData <- exprData[idx,]
+
+ensembl.id <- as.character(annoData$ensembl_id[match(exprData$GeneID, annoData$entrez_id)])
+ensembl.id
+
+rownames(exprData) <- ensembl.id
+
+rownames(phenoData) <- phenoData$sample_id
+
+samples <- intersect(colnames(exprData),rownames(phenoData))
+
+exprData <- exprData[,samples]
+phenoData <- phenoData[samples,]
 
 
 mirData <- read.delim('data/Validation/MSKCC_PCa_microRNA_data.mir21.txt', header = T, sep = '\t', stringsAsFactors = F)
@@ -1031,8 +1084,13 @@ geno2 <- scale(t(mirData[ovlp,keep]))
 
 geno <- cbind(geno1, geno2)
 
+
+colnames(geno2) %in% rownames(genesInValidation)
+genesInValidation[colnames(geno2),'MSKCC2010MIR'] <- 1
+
 #geno <- geno2
 #geno <- geno1
+geno <- geno1
 
 pheno <- as.matrix(phenoData$y, drop=FALSE)
 y <- as.numeric(pheno)
@@ -1096,7 +1154,7 @@ vitalStatus <- as.numeric(phenoData$bcr_status)
 pred <- cbind(pred, daysToDeath, vitalStatus)
 pred
 
-write.table(pred, file='report/Validation_GSE21034_mRNA_miRNA_Prediction.txt', sep = '\t', quote = F, row.names = F)
+write.table(pred, file='report/Validation_MSKCC2010_mRNA_miRNA_Prediction.txt', sep = '\t', quote = F, row.names = F)
 
 
 risk <- pred$yhat[order(pred$id)]
@@ -1140,6 +1198,7 @@ hr
 lower95
 upper95
 p.val
+
 
 label.hr <- paste('HR = ', hr, ' (', lower95, ' - ', upper95, ')', sep='')
 label.p <- paste('P Value = ', p.val, sep='')
@@ -1206,8 +1265,9 @@ dataForForestPlot <- read.delim('report/BLUPHAT_Validation.txt', header=T, sep='
 dataForForestPlot
 
 dataForForestPlot <- dataForForestPlot[order(dataForForestPlot$p.coxph),]
+dataForForestPlot
 
-dataForForestPlot <- dataForForestPlot[c(1:4,6,5),]
+dataForForestPlot <- dataForForestPlot[c(1:2,4:5,7,6,3),]
 
 dataForForestPlot$dataset <- factor(paste0(rownames(dataForForestPlot),' (N=',dataForForestPlot$rfs5yr,')'), 
                          levels=rev(paste0(rownames(dataForForestPlot),' (N=',dataForForestPlot$rfs5yr,')')))
@@ -1227,7 +1287,7 @@ ggplot(dataForForestPlot, aes(x=dataset, y=hr.coxph)) +
   geom_point(color=google.red, size=3, shape=15) + #facet_grid(.~type) +
   #geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.017,0.033,0.018), label=p.coxph, group=NULL),
   #          size=4.4) +
-  geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.35,0.5,0.2,0.45,0.95,0.55), label=p.coxph, group=NULL),
+  geom_text(data =dataForForestPlot, aes(x=dataset, y=c(0.35,0.5,0.2,0.45,0.95,0.72,0.46), label=p.coxph, group=NULL),
             size=4.4) +
   coord_flip()+
   #ylim(0,0.05) +
@@ -1247,6 +1307,3 @@ ggplot(dataForForestPlot, aes(x=dataset, y=hr.coxph)) +
         axis.line.y = element_blank(),
         panel.border = element_blank(),
         panel.background = element_blank())
-
-                 
-                 
