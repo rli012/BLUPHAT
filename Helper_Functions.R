@@ -63,13 +63,39 @@ downloadMethy <- function(manifest=manifest,directory) {
 }
 
 
+#################################################
+
 file.move <- function(files, directory) {
   file.copy(from=files, to=directory, recursive = TRUE)
   unlink(files, recursive=TRUE)
 }
 
-capitalize <- function(x) {
-  x <- tolower(x)
+#################################################
+
+capitalize <- function(x, tow.lower=TRUE) {
+  if (to.lower==TRUE) {
+    x <- tolower(x)
+  }
   substr(x,1,1) <- toupper(substr(x,1,1))
   return(x)
 }
+
+
+#################################################
+
+generateCV <- function(n, nfold=10, repeats=10) {
+  foldidID<-lapply(1:repeats,function(i){
+    sample(rep(1:nfold,ceiling(n/nfold))[1:n])
+  })
+  return (foldidID)
+}
+
+### 10-fold CV
+# foldidList <- generateCV(n=285, nfold=10, repeats=10)
+
+### Traning-Test
+# foldidList <- generateCV(n=285, nfold=2, repeats=10)
+
+### LOOCV
+# foldidList <- generateCV(n=285, nfold=285, repeats=10)
+
