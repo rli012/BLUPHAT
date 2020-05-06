@@ -19,9 +19,7 @@ library(glmnet, lib.loc='~/bigdata/software/Rlibrary')
 library(kernlab, lib.loc='~/bigdata/software/Rlibrary')
 library(BGLR, lib.loc='~/bigdata/software/Rlibrary')
 library(pls, lib.loc='~/bigdata/software/Rlibrary')
-
 library(randomForest, lib.loc='~/bigdata/software/Rlibrary')
-
 
 #library(Matrix)
 #library(foreach)
@@ -56,9 +54,14 @@ mir <- mirData[,samples]
 methy <- methyData[,samples]
 
 
-foldidID <- readRDS('data/Model_Omics_Evaluation_Nomogram_CV10_285.RDS')
+#nfold <- 10
+#n <- length(y)
 
-nfold <- 10
+#foldidList <- generateCV(n=n, nfold=nfold, repeats=10)
+
+#saveRDS(foldidList, file='data/Model_Omics_Evaluation_Nomogram_CV10_285.rda')
+
+foldidList <- readRDS('data/Model_Omics_Evaluation_Nomogram_CV10_285.RDS')
 
 
 ############################## RNAseq #############################
@@ -85,7 +88,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -283,7 +286,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -482,7 +485,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -681,7 +684,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -883,7 +886,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -1086,7 +1089,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
@@ -1285,7 +1288,7 @@ yoo6<-NULL
 for (z in 1:10) {
     cat ('============================================\n')
     cat (rep(c(z,'-'),10))
-    foldid <- foldidID[[z]]
+    foldid <- foldidList[[z]]
     
     
     ############################### BLUP ################################
