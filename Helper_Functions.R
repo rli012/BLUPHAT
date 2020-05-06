@@ -68,4 +68,8 @@ file.move <- function(files, directory) {
   unlink(files, recursive=TRUE)
 }
 
-
+capitalize <- function(x) {
+  x <- tolower(x)
+  substr(x,1,1) <- toupper(substr(x,1,1))
+  return(x)
+}
