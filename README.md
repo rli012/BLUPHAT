@@ -1,6 +1,6 @@
-# Robust Genomic Prediction Methodologies for Prostate Cancer Prognosis by Leveraging Multi-Omics Data
+## Robust Genomic Prediction Methodologies for Prostate Cancer Prognosis by Leveraging Multi-Omics Data
 
-## About the project
+### About the project
 * Genomic prediction, which incorporates whole-genome markers into a statistical model concurrently, has achieved great success in plant and animal breeding, but has been rarely adopted in cancer prognosis studies
 
 * We systematically evaluate the performance of 6 genomic prediction methods using 3 omics data and their combinations in predicting prostate cancer outcomes to bridge the genomic prediction methodologies developed for plant and animal breeding with cancer prognosis
@@ -11,7 +11,7 @@
 
 * We develop a robust method by incorporating stepwise forward selection into BLUP-HAT to identify the best multi-omics predictors from TCGA data for an accurate prediction of survival, and successfully validate the strategy in 6 independent cohorts
 
-## About the repository
+### About the repository
 
 * This repository stores all the scripts that were used for the project, including:
 (1) Survival analysis nomogram
