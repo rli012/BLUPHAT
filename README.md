@@ -14,9 +14,9 @@
 ### About the repository
 
 * This repository stores all the scripts that were used for the project, including:
-* (1) Data downloading and preprocessing
-* (2) Survival analysis of RFS using nomogram-calculated post-surgery traits
-* (2) Evaluation the performance of 6 statistical models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)
-* (3) BLUPHAT model for hypothesis testing
-* (4) Development of a multi-omics signature using BLUPHAT in TCGA training dataset and validation of the signature in 6 independent cohorts
-* (5) Visualization
+(1) Data downloading and preprocessing  
+(2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
+(3) Evaluation of the performance of 6 statistical models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
+(4) BLUPHAT model for hypothesis testing  
+(5) Development of a multi-omics signature using BLUPHAT in TCGA training dataset and validation of the signature in 6 independent cohorts  
+(6) Data visualization
