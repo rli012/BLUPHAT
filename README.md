@@ -13,7 +13,7 @@
 
 ### About the repository
 
-* This repository stores all the scripts that were used for the project, including:
+* This repository stores all the scripts that were used for the project, including:  
 (1) Data downloading and preprocessing  
 (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
 (3) Evaluation of the performance of 6 statistical models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
