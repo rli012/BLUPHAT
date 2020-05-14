@@ -15,9 +15,9 @@
 
 This repository stores all the scripts that were used for the project, including:  
 * (1) Data downloading and preprocessing  
-      **Download_and_Preprocess_TCGA_PRAD_Data.R**  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
+      Download_and_Preprocess_TCGA_PRAD_Data.R  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
 * (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
-      **Survival_Analysis_of_Six_Nomogram_Traits.R**   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
+      Survival_Analysis_of_Six_Nomogram_Traits.R   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
 
 * (3) Evaluation of the performance of 6 statistical models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
 * (4) BLUPHAT model for hypothesis testing  
