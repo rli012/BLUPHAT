@@ -15,7 +15,7 @@
 
 This repository stores all the scripts that were used for the project, including:  
 * (1) Data downloading and preprocessing  
-      Download_and_Preprocess_TCGA_PRAD_Data.R  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
+      [Download_and_Preprocess_TCGA_PRAD_Data.R](https://github.com/rli012/BLUPHAT/blob/master/Download_and_Preprocess_TCGA_PRAD_Data.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
 * (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
       Survival_Analysis_of_Six_Nomogram_Traits.R   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
 
