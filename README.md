@@ -3,13 +3,13 @@
 ### About the project
 * Genomic prediction, which incorporates whole-genome markers into a statistical model concurrently, has achieved great success in plant and animal breeding, but has been rarely adopted in cancer prognosis studies
 
-* We systematically evaluate the performance of 6 genomic prediction methods using 3 omics data and their combinations in predicting prostate cancer outcomes to bridge the genomic prediction methodologies developed for plant and animal breeding with cancer prognosis
+* We systematically evaluated the performance of 6 genomic prediction methods using 3 omics data and their combinations in predicting prostate cancer outcomes
 
-*	The most commonly used genomic prediction method – Best Linear Unbiased Prediction (BLUP) outperforms all the other models in terms of predictability and computational efficiency
+* The most commonly used genomic prediction method – Best Linear Unbiased Prediction (BLUP) outperformed all the other models in terms of predictability and computational efficiency
 
-* Taking advantage of the computational efficiency of BLUP-HAT, we demonstrate that prediction models using expression of a large number of genes selected from transcriptome outperform the clinically employed tests which only consider a small number of major genes, and the integration of other omics data (i.e., miRNAs) in the model will further increase the predictability
+* With the computationally efficient BLUP-HAT methodology, we demonstrated that (1) prediction models using expression of a large number of genes selected from transcriptome outperformed the clinically employed tests which only consider a small number of major genes, and (2) the integration of other omics data (i.e., miRNAs) in the model will further increase the predictability
 
-* We develop a robust method by incorporating stepwise forward selection into BLUP-HAT to identify the best multi-omics predictors from TCGA data for an accurate prediction of survival, and successfully validate the strategy in 6 independent cohorts
+* We developd a novel Stepwise Forward Selection BLUPHAT (SFS-BLUPHAT) method to search multi-omics data for all possible predictor vairables for predicting RFS of PCa patients. The gene/miRNA signatures derived from the TCGA dataset and the methodology have been successfully validated uisng 6 independent cohorts.
 
 ### About the repository
 
