@@ -1,6 +1,4 @@
 
-
-
 ###############################################################
 ###                   Data Visualization                    ###
 ###############################################################
@@ -8,8 +6,6 @@
 setwd('~/bigdata/LABDATA/BLUPHAT/')
 
 library(ggplot2)
-
-
 
 
 ##############################################################
@@ -25,41 +21,132 @@ library(ggplot2)
 # Figure 6: SFS-BLUPHAT_MultiOmics_RFS.R
 
 
-
 ##############################################################
 
 ############# Figure 2: GS Model Evaluation
 
-methods <- c('BLUP','LASSO','PLS','BayesB','SVM-RBF','SVM-POLY')
+files <- file.path('report/GS_Omics_Comparison', dir('report/GS_Omics_Comparison'))
+files
 
-pred <- read.table('Results/six_methods.miRNAs.scale.pfr_5yr.txt', header=T ,stringsAsFactors = F)
-pred <- pred[1:10,]
-pred <- pred^2
+BLUP <- c()
+LASSO <- c()
+PLS <- c()
+BayesB <- c()
+SVMRBF <- c()
+SVMPOLY <- c()
+for (fl in files) {
+  hat <- read.table(fl, sep='\t', stringsAsFactors = F)
+  BLUP <- c(BLUP, as.numeric(hat[11,1]))
+  LASSO <- c(LASSO, as.numeric(hat[11,2]))
+  PLS <- c(PLS, as.numeric(hat[11,3]))
+  BayesB <- c(BayesB, as.numeric(hat[11,4]))
+  SVMRBF <- c(SVMRBF, as.numeric(hat[11,5]))
+  SVMPOLY <- c(SVMPOLY, as.numeric(hat[11,6]))
+}
 
-x = rep(methods, each=10)
-Models <- factor(x, levels=methods)
-x
+method <- c('BLUP', 'LASSO', 'PLS', 'BayesB', 'SVM-RBF', 'SVM-POLY')
 
-Predictability = as.numeric(unlist(pred))
-y
+omics <- c('TR', 'MI', 'ME', 'TR+MI', 'TR+ME', 'MI+ME', 'TR+MI+ME')
+trait <- c('PFR5YR', 'PFR10YR', 'OCD', 'ECE', 'LNI', 'SVI')
 
+HAT <- data.frame(Predictability=c(BLUP, LASSO, PLS, BayesB, SVMRBF, SVMPOLY)^2, 
+                  Models = factor(rep(method, each=length(BLUP)), levels=method),
+                  Omics=factor(rep(c('ME','MI','MI+ME','TR','TR+ME','TR+MI','TR+MI+ME'),each=6), 
+                               levels=omics),
+                  Traits=factor(rep(c('ECE','LNI','OCD','PFR10YR','PFR5YR','SVI'),7), levels=trait))
 
-rnaPred <- data.frame(Models,Predictability)
-rnaPred
+aggregate(HAT$Predictability, list(HAT$Models), mean)
+aggregate(HAT$Predictability, list(HAT$Omics), mean)
+aggregate(HAT$Predictability, list(HAT$Traits), mean)
 
-ggplot(data=rnaPred, aes(x=Models, y=Predictability, color=Models)) + 
+p1 <- ggplot(data=HAT, aes(x=Traits, y=Predictability, color=Traits)) + 
+  #stat_boxplot(geom ='errorbar',width=0.3) +
   geom_boxplot() + #ylim(0,0.6) +
   stat_summary(fun.y='mean', geom="point", shape=23, size=3) +
   theme_bw()+theme(axis.line = element_line(colour = "black"),
                    #panel.grid.minor = element_blank(),
-                   axis.text = element_text(size=14),
-                   axis.title = element_text(size=16),
-                   legend.text = element_text(size=12),
-                   legend.title = element_text(size=0),
+                   axis.text = element_text(size=14, color='black'),
+                   axis.title.y = element_text(size=16),
+                   axis.title.x = element_blank(),
+                   legend.text = element_blank(),
+                   legend.position = 'none',
                    panel.background = element_blank(),
                    panel.border = element_rect(color='black')) 
+p1
 
 
+p2 <- ggplot(data=HAT, aes(x=Omics, y=Predictability, color=Omics)) + 
+  #stat_boxplot(geom ='errorbar',width=0.3) +
+  geom_boxplot() + #ylim(0,0.6) +
+  stat_summary(fun.y='mean', geom="point", shape=23, size=3) +
+  theme_bw()+theme(axis.line = element_line(colour = "black"),
+                   #panel.grid.minor = element_blank(),
+                   axis.text = element_text(size=14, color='black'),
+                   axis.title.y = element_text(size=16),
+                   axis.title.x = element_blank(),
+                   legend.text = element_blank(),
+                   legend.position = 'none',
+                   panel.background = element_blank(),
+                   panel.border = element_rect(color='black')) 
+p2
+
+
+p3 <- ggplot(data=HAT, aes(x=Models, y=Predictability, color=Models)) + 
+  #stat_boxplot(geom ='errorbar',width=0.3) +
+  geom_boxplot() + #ylim(0,0.6) +
+  stat_summary(fun.y='mean', geom="point", shape=23, size=3) +
+  theme_bw()+theme(axis.line = element_line(colour = "black"),
+                   #panel.grid.minor = element_blank(),
+                   axis.text = element_text(size=14, color='black'),
+                   axis.title.y = element_text(size=16),
+                   axis.title.x = element_blank(),
+                   legend.text = element_blank(),
+                   legend.position = 'none',
+                   panel.background = element_blank(),
+                   panel.border = element_rect(color='black')) 
+p3
+
+comp <- list(BLUP, LASSO, PLS, BayesB, SVMRBF, SVMPOLY)
+lapply(comp, mean)
+
+multiplot(p1, p2, p3) # 800*600
+
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+  
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+  
+  numPlots = length(plots)
+  
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                     ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+  
+  if (numPlots==1) {
+    print(plots[[1]])
+    
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+    
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+      
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
 
 ##############################################################
 
