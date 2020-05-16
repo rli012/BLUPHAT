@@ -257,7 +257,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('Results/Six_Models.RNAseq.scale.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.RNAseq.scale.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -455,7 +455,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('Results/Six_Models.miRNAs.scale.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.miRNAs.scale.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -654,7 +654,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('report/Six_Models.Methylation.scale.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.Methylation.scale.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -853,7 +853,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('report/Six_Models.RNAseq_and_miRNAs.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.RNAseq_and_miRNAs.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -1055,7 +1055,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('report/Six_Models.RNAseq_and_Methylation.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.RNAseq_and_Methylation.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -1258,7 +1258,7 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('report/Six_Models.miRNAs_and_Methylation.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.miRNAs_and_Methylation.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
 
@@ -1457,6 +1457,6 @@ sd<- apply(res,2,sd)
 out<-rbind(mean,sd)
 res2=rbind(res,out)
 res2
-write.table(res2,file=paste('report/Six_Models.RNAseq_miRNAs_and_Methylation.', trait, '.txt', sep=''),
+write.table(res2,file=paste('report/GS_Omics_Comparison/Six_Models.RNAseq_miRNAs_and_Methylation.', trait, '.txt', sep=''),
             sep='\t', quote=F, row.names=F)
 
