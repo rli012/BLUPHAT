@@ -29,3 +29,11 @@ This repository stores all the scripts that were used for the project, including
       [SFS-BLUPHAT_MultiOmics_RFS.R](https://github.com/rli012/BLUPHAT/blob/master/SFS-BLUPHAT_MultiOmics_RFS.R) *Development of a multi-omics signature for RFS prediction in the TCGA training dataset using SFS-BLUPHAT methodology and validation of the signature in 6 independent cohorts*  
 
 * (6) Data visualization  
+      [Data_Visualization.R](https://github.com/rli012/BLUPHAT/blob/master/Data_Visualization.R) *Visualization of the results*  
+      
+* (7) Helper Functions  
+      [Helper_Functions.R](https://github.com/rli012/BLUPHAT/blob/master/Helper_Functions.R)    *Helper functions used for the project, such as downloading data, generating cross validation, etc.*  
+      [BLUPHAT_Functions.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_Functions.R) *Functions for the BLUP, BLUP-HAT, and SFS-BLUPHAT models*  
+      [Commercial_Panels.R](https://github.com/rli012/BLUPHAT/blob/master/Commercial_Panels.R)   *Gene information of the three commercial panels: Oncotype, Decipher, and Prolaris*  
+
+      
