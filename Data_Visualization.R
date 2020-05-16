@@ -7,7 +7,6 @@ setwd('~/bigdata/LABDATA/BLUPHAT/')
 
 library(ggplot2)
 
-
 ##############################################################
 
 ############# Figure 1, 5, 6 Survival Analyses
@@ -348,5 +347,3 @@ ggplot(data=hat, aes(x=Omics, y=Predictability, color=Omics, fill=Omics)) +
                      strip.background = element_blank(),
                      panel.background = element_blank(),
                      panel.border = element_rect(color='black')) #strip.background = element_blank()
-
-
