@@ -15,11 +15,17 @@
 
 This repository stores all the scripts that were used for the project, including:  
 * (1) Data downloading and preprocessing  
-      [Download_and_Preprocess_TCGA_PRAD_Data.R](https://github.com/rli012/BLUPHAT/blob/master/Download_and_Preprocess_TCGA_PRAD_Data.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
+      [TCGA_PRAD_Data_Preprocessing.R](https://github.com/rli012/BLUPHAT/blob/master/TCGA_PRAD_Data_Preprocessing.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
 * (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
-      Survival_Analysis_of_Six_Nomogram_Traits.R   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
+      [RFS_Survival_Analysis_Nomogram.R](https://github.com/rli012/BLUPHAT/blob/master/RFS_Survival_Analysis_Nomogram.R)   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
 
-* (3) Evaluation of the performance of 6 statistical models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
-* (4) BLUPHAT model for hypothesis testing  
-* (5) Development of a multi-omics signature using BLUPHAT in TCGA training dataset and validation of the signature in 6 independent cohorts  
+* (3) Evaluation of the performance of 6 GS models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
+      [GS_Models_Omics_Data_Evaluation.R](https://github.com/rli012/BLUPHAT/blob/master/GS_Models_Omics_Data_Evaluation.R) *Compare the performance of 6 statistical models using 3 omics data and their combinations for the prediction of nomogram traits*  
+
+* (4) BLUPHAT model for hypothesis test 
+      [BLUPHAT_For_Hypotheses_Test.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_For_Hypotheses_Test.R) *Evaluate tens to thousands of BLUP-HAT models with various numbers of genes and with the integration of miRNA data to test the two proposed hypotheses* 
+
+* (5) Development and validation of a Multi-omics signature 
+      [SFS-BLUPHAT_MultiOmics_RFS.R](https://github.com/rli012/BLUPHAT/blob/master/SFS-BLUPHAT_MultiOmics_RFS.R) *Development of a multi-omics signature for RFS prediction in the TCGA training dataset using SFS-BLUPHAT methodology and validation of the signature in 6 independent cohorts*  
+
 * (6) Data visualization
