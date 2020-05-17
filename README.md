@@ -19,13 +19,13 @@ This repository stores all the scripts that were used for the project, including
 * (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
       [RFS_Survival_Analysis_Nomogram.R](https://github.com/rli012/BLUPHAT/blob/master/RFS_Survival_Analysis_Nomogram.R)   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
 
-* (3) Evaluation of the performance of 6 GS models using 3 omics data and their combinations in predicting prostate cancer outcomes (nomogram traits)  
+* (3) Evaluation of 6 GS models with 3 omics data and their combinations  
       [GS_Models_Omics_Data_Evaluation.R](https://github.com/rli012/BLUPHAT/blob/master/GS_Models_Omics_Data_Evaluation.R) *Compare the performance of 6 statistical models using 3 omics data and their combinations for the prediction of nomogram traits*  
 
 * (4) BLUPHAT model for hypothesis test  
       [BLUPHAT_For_Hypotheses_Test.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_For_Hypotheses_Test.R) *Evaluate tens to thousands of BLUP-HAT models with various numbers of genes and with the integration of miRNA data to test the two proposed hypotheses* 
 
-* (5) Development and validation of a Multi-omics signature  
+* (5) Development and validation of a multi-omics signature and the SFS-BLUPHAT methodology  
       [SFS-BLUPHAT_MultiOmics_RFS.R](https://github.com/rli012/BLUPHAT/blob/master/SFS-BLUPHAT_MultiOmics_RFS.R) *Development of a multi-omics signature for RFS prediction in the TCGA training dataset using SFS-BLUPHAT methodology and validation of the signature in 6 independent cohorts*  
 
 * (6) Data visualization  
