@@ -205,10 +205,10 @@ dataForForestPlot$P <- paste0('p = ', dataForForestPlot$P)
 
 ### PLOT
 
-ggplot(dataForForestPlot, aes(x=dataset, y=log10(HR))) +
+ggplot(dataForForestPlot, aes(x=dataset, y=log(HR))) +
   #geom_segment(aes(y=dataset, x=lower95.coxph, xend=upper95.coxph, yend=dataset), color='black', size=1) +
   #geom_segment(aes(y=6:1-0.1, x=lower95.coxph, xend=lower95.coxph, yend=6:!+0.1), color='black', size=1) +
-  geom_errorbar(aes(ymin=log10(Lower95), ymax=log10(Upper95)),width=0.1, size=0.8, color='black')+ 
+  geom_errorbar(aes(ymin=log(Lower95), ymax=log(Upper95)),width=0.1, size=0.8, color='black')+ 
   geom_point(color=google.red, size=3, shape=15) + #facet_grid(.~type) +
   geom_text(data =dataForForestPlot, aes(x=dataset, y=c(-2.9,-3.12,-1.16,1.2,2.58,2.5), label=P, group=NULL),
             size=4.4) +
@@ -220,7 +220,7 @@ ggplot(dataForForestPlot, aes(x=dataset, y=log10(HR))) +
   #                   labels = c(0, 1, 2.5,50,250,7500)) +
   coord_flip()+
   #ylim(0,0.05) +
-  xlab('')+ylab(expression('Log'[10]*'(Hazard Ratio)')) +
+  xlab('')+ylab(expression('Log(Hazard Ratio)')) +
   #xlim(0,100) +
   theme_bw()+
   #theme_set(theme_minimal()) #
