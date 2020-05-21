@@ -1,7 +1,7 @@
 ## Robust Genomic Prediction Methodologies for Prostate Cancer Prognosis by Leveraging Multi-Omics Data
 
 ### About the project
-* Genomic prediction, which incorporates whole-genome markers into a statistical model concurrently, has achieved great success in plant and animal breeding, but has been rarely adopted in cancer prognosis studies
+* Genomic selection (GS) or genomic prediction (GP), which incorporates whole-genome markers into a statistical model concurrently, has achieved great success in plant and animal breeding, but has been rarely adopted in cancer prognosis studies
 
 * We systematically evaluated the performance of 6 genomic prediction methods using 3 omics data and their combinations in predicting prostate cancer outcomes
 
