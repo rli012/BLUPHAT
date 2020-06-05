@@ -9,7 +9,7 @@
 
 * With the computationally efficient BLUP-HAT methodology, we demonstrated that (1) prediction models using expression of a large number of genes selected from transcriptome outperformed the clinically employed tests which only consider a small number of major genes, and (2) the integration of other omics data (i.e., miRNAs) in the model will further increase the predictability
 
-* We developd a novel Stepwise Forward Selection BLUPHAT (SFS-BLUPHAT) method to search multi-omics data for all possible predictor vairables for predicting RFS of PCa patients. The gene/miRNA signatures derived from the TCGA dataset and the methodology have been successfully validated uisng 6 independent cohorts.
+* We developd a novel Stepwise Forward Selection BLUPHAT (SFS-BLUPH) method to search multi-omics data for all possible predictor vairables for predicting RFS of PCa patients. The gene/miRNA signatures derived from the TCGA dataset and the methodology have been successfully validated uisng 6 independent cohorts.
 
 ### About the repository
 
@@ -25,8 +25,8 @@ This repository stores all the scripts that were used for the project, including
 * (4) BLUPHAT model for hypothesis test  
       [BLUPHAT_For_Hypotheses_Test.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_For_Hypotheses_Test.R) *Evaluate tens to thousands of BLUP-HAT models with various numbers of genes and with the integration of miRNA data to test the two proposed hypotheses* 
 
-* (5) Development and validation of a multi-omics signature and the SFS-BLUPHAT methodology  
-      [SFS-BLUPHAT_MultiOmics_RFS.R](https://github.com/rli012/BLUPHAT/blob/master/SFS-BLUPHAT_MultiOmics_RFS.R) *Development of a multi-omics signature for RFS prediction in the TCGA training dataset using SFS-BLUPHAT methodology and validation of the signature in 6 independent cohorts*  
+* (5) Development and validation of a multi-omics signature and the SFS-BLUPH methodology  
+      [SFS-BLUPH_MultiOmics_RFS.R](https://github.com/rli012/BLUPHAT/blob/master/SFS-BLUPHAT_MultiOmics_RFS.R) *Development of a multi-omics signature for RFS prediction in the TCGA training dataset using SFS-BLUPH methodology and validation of the signature in 6 independent cohorts*  
 
 * (6) Data visualization  
       [Data_Visualization.R](https://github.com/rli012/BLUPHAT/blob/master/Data_Visualization.R) *Visualization of the results*  
