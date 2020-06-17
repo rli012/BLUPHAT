@@ -16,6 +16,7 @@
 This repository stores all the scripts that were used for the project, including:  
 * (1) Data downloading and preprocessing  
       [TCGA_PRAD_Data_Preprocessing.R](https://github.com/rli012/BLUPHAT/blob/master/TCGA_PRAD_Data_Preprocessing.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
+      Multi-omics data (including HTSeq-Counts of RNA-seq, BCGSC miRNA Profiling of miRNA-seq, and Beta value of Illumina Human Methylation 450 array) and clinical data for 495 PCa patients from the TCGA-PRAD project were downloaded and processed by a series of functions in the R package *GDCRNATools*. The mRNAs and miRNAs with counts per million reads (CPM) < 1 in more than half of the patients as well as the methylation probes with any missing values were filtered out before subsequent analysis.  
 * (2) Survival analysis of RFS using nomogram-calculated post-surgery traits  
       [RFS_Survival_Analysis_Nomogram.R](https://github.com/rli012/BLUPHAT/blob/master/RFS_Survival_Analysis_Nomogram.R)   *Evaluate the performance of 6 nomogram-calculated scores on RFS survival prediction*  
 
