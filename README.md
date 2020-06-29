@@ -42,4 +42,4 @@ This repository stores all the scripts that were used for the project, including
       [BLUPHAT_Functions.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_Functions.R) *Functions for the BLUP, BLUP-HAT, and SFS-BLUPHAT models*  
       [Commercial_Panels.R](https://github.com/rli012/BLUPHAT/blob/master/Commercial_Panels.R)   *Gene information of the three commercial panels: Oncotype, Decipher, and Prolaris*  
 
-      
+### Cite
