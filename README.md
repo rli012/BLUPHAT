@@ -43,3 +43,5 @@ This repository stores all the scripts that were used for the project, including
       [Commercial_Panels.R](https://github.com/rli012/BLUPHAT/blob/master/Commercial_Panels.R)   *Gene information of the three commercial panels: Oncotype, Decipher, and Prolaris*  
 
 ### Cite
+
+Li, R., Wang, S., Cui, Y., Qu, H., Chater, J.M., Zhang, L., Wei, J., Wang, M., Xu, Y., Yu, L., Lu, J., Feng, Y., Zhou, R., Huang, Y., Ma, R., Zhu, J., Zhong, W., and Jia, Z., 2020. Extended Application of Genomic Selection to Screen Multi-Omics Data for Prognostic Signatures of Prostate Cancer. Briefings in Bioinformatics
