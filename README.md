@@ -14,7 +14,7 @@
 ### About the repository
 
 This repository stores all the scripts and data that were used for the project, including:  
-* **data/**
+* **data/**  
       Datasets (*ExpressionSet* objects) used in the study, including:  
       * TCGA_PRAD_eSet.RDS  
       * DKFZ2018_eSet.RDS  
