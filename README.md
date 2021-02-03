@@ -16,13 +16,13 @@
 This repository stores all the scripts and data that were used for the project, including:  
 * **data/**  
       Datasets (*ExpressionSet* objects) used in the study, including:  
-      * TCGA_PRAD_eSet.RDS  
+      * [TCGA_PRAD_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/TCGA_PRAD_eSet.RDS)  
       * [DKFZ2018_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/DKFZ2018_eSet.RDS)  
-      * GSE116918_eSet.RDS  
-      * GSE54460_eSet.RDS  
-      * GSE107299_eSet.RDS  
-      * GSE21034_eSet.RDS  
-      * GSE70769_eSet.RDS  
+      * [GSE116918_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/GSE116918_eSet.RDS)  
+      * [GSE54460_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/GSE54460_eSet.RDS)  
+      * [GSE107299_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/GSE107299_eSet.RDS)  
+      * [GSE21034_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/GSE21034_eSet.RDS)  
+      * [GSE70769_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/GSE70769_eSet.RDS)  
       
 * **(1) Data downloading and preprocessing**  
       [TCGA_PRAD_Data_Preprocessing.R](https://github.com/rli012/BLUPHAT/blob/master/TCGA_PRAD_Data_Preprocessing.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
