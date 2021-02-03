@@ -13,7 +13,17 @@
 
 ### About the repository
 
-This repository stores all the scripts that were used for the project, including:  
+This repository stores all the scripts and data that were used for the project, including:  
+* **data/**
+      Datasets (*ExpressionSet* objects) used in the study, including:
+      * TCGA_PRAD_eSet.RDS
+      * DKFZ2018_eSet.RDS
+      * GSE116918_eSet.RDS
+      * GSE54460_eSet.RDS
+      * GSE107299_eSet.RDS
+      * GSE21034_eSet.RDS
+      * GSE70769_eSet.RDS
+      
 * **(1) Data downloading and preprocessing**  
       [TCGA_PRAD_Data_Preprocessing.R](https://github.com/rli012/BLUPHAT/blob/master/TCGA_PRAD_Data_Preprocessing.R)  *Download and preprocess RNAseq, miRNA, methylation, and clinical data from TCGA-PRAD*  
       Multi-omics data (including HTSeq-Counts of RNA-seq, BCGSC miRNA Profiling of miRNA-seq, and Beta value of Illumina Human Methylation 450 array) and clinical data for 495 PCa patients from the TCGA-PRAD project were downloaded and processed by a series of functions in the R package *GDCRNATools*. The mRNAs and miRNAs with counts per million reads (CPM) < 1 in more than half of the patients as well as the methylation probes with any missing values were filtered out before subsequent analysis. 
