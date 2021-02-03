@@ -17,7 +17,7 @@ This repository stores all the scripts and data that were used for the project, 
 * **data/**  
       Datasets (*ExpressionSet* objects) used in the study, including:  
       * TCGA_PRAD_eSet.RDS  
-      * DKFZ2018_eSet.RDS  
+      * [DKFZ2018_eSet.RDS](https://github.com/rli012/BLUPHAT/raw/master/data/DKFZ2018_eSet.RDS)  
       * GSE116918_eSet.RDS  
       * GSE54460_eSet.RDS  
       * GSE107299_eSet.RDS  
