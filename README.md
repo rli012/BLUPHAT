@@ -1,6 +1,6 @@
 ## Robust Genomic Prediction Methodologies for Prostate Cancer Prognosis by Leveraging Multi-Omics Data
 
-####Please cite the following publication if the data or code in the repostiory is used in your study:
+#### Please cite the following publication if the data or code in the repostiory is used in your study:
 Li, R., Wang, S., Cui, Y. et al. (2020). Extended Application of Genomic Selection to Screen Multi-Omics Data for Prognostic Signatures of Prostate Cancer. *[Briefings in Bioinformatics](https://doi.org/10.1093/bib/bbaa197)*
 
 
@@ -55,7 +55,3 @@ This repository stores all the scripts and data that were used for the project, 
       [Helper_Functions.R](https://github.com/rli012/BLUPHAT/blob/master/Helper_Functions.R)    *Helper functions used for the project, such as downloading data, generating cross validation, etc.*  
       [BLUPHAT_Functions.R](https://github.com/rli012/BLUPHAT/blob/master/BLUPHAT_Functions.R) *Functions for the BLUP, BLUP-HAT, and SFS-BLUPHAT models*  
       [Commercial_Panels.R](https://github.com/rli012/BLUPHAT/blob/master/Commercial_Panels.R)   *Gene information of the three commercial panels: Oncotype, Decipher, and Prolaris*  
-
-### Cite
-
-Li, R., Wang, S., Cui, Y., Qu, H., Chater, J.M., Zhang, L., Wei, J., Wang, M., Xu, Y., Yu, L., Lu, J., Feng, Y., Zhou, R., Huang, Y., Ma, R., Zhu, J., Zhong, W., and Jia, Z., 2020. Extended Application of Genomic Selection to Screen Multi-Omics Data for Prognostic Signatures of Prostate Cancer. Briefings in Bioinformatics
