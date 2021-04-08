@@ -1,5 +1,9 @@
 ## Robust Genomic Prediction Methodologies for Prostate Cancer Prognosis by Leveraging Multi-Omics Data
 
+####Please cite the following publication if the data or code in the repostiory is used in your study:
+Li, R., Wang, S., Cui, Y. et al. (2020). Extended Application of Genomic Selection to Screen Multi-Omics Data for Prognostic Signatures of Prostate Cancer. *[Briefings in Bioinformatics](https://doi.org/10.1093/bib/bbaa197)*
+
+
 ### About the project
 * Genomic selection (GS) or genomic prediction (GP), which incorporates whole-genome markers into a statistical model concurrently, has achieved great success in plant and animal breeding, but has been rarely adopted in cancer prognosis studies
 
